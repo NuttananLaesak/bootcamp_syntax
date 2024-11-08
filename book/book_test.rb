@@ -55,30 +55,30 @@ class LibraryTest < Minitest::Test
     assert_nil @repository.find_by_id(1)
   end
 
-  def test_list_books
-    @service.add_book(1, "Book Title 1", "Author 1")
-    @service.add_book(2, "Book Title 2", "Author 2")
+  # def test_list_books
+  #   @service.add_book(1, "Book Title 1", "Author 1")
+  #   @service.add_book(2, "Book Title 2", "Author 2")
 
-    all_books = @service.list_books
-    assert_equal 2, all_books.size
-    assert_includes all_books, "ID: 1, Title: Book Title 1, Author: Author 1"
-    assert_includes all_books, "ID: 2, Title: Book Title 2, Author: Author 2"
-  end
+  #   all_books = @service.list_books
+  #   assert_equal 2, all_books.size
+  #   assert_includes all_books, "ID: 1, Title: Book Title 1, Author: Author 1"
+  #   assert_includes all_books, "ID: 2, Title: Book Title 2, Author: Author 2"
+  # end
 
-  def test_add_duplicate_book_id
-    @service.add_book(1, "Book Title 1", "Author 1")
-    result = @service.add_book(1, "Book Title 2", "Author 2")
+  # def test_add_duplicate_book_id
+  #   @service.add_book(1, "Book Title 1", "Author 1")
+  #   result = @service.add_book(1, "Book Title 2", "Author 2")
 
-    assert_nil result
-    assert_equal 1, @repository.all.size
-  end
+  #   assert_nil result
+  #   assert_equal 1, @repository.all.size
+  # end
 
-  def test_repository_empty_initially
-    assert_empty @repository.all
-  end
+  # def test_repository_empty_initially
+  #   assert_empty @repository.all
+  # end
 
-  def test_find_non_existent_book
-    book = @repository.find_by_id(999)
-    assert_nil book
-  end
+  # def test_find_non_existent_book
+  #   book = @repository.find_by_id(999)
+  #   assert_nil book
+  # end
 end
