@@ -21,5 +21,6 @@ class BookService
   end
 
   def list_books
+    @repository.all
   end
 end

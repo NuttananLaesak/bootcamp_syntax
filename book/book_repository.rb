@@ -5,8 +5,12 @@ class BookRepository
   end
 
   def add(book)
-    @books << book
-    book
+    if find_by_id(book.id)
+      nil  
+    else
+      @books << book  
+      book    
+    end
   end
 
   def find_by_id(id)
@@ -21,6 +25,9 @@ class BookRepository
   end
 
   def all
-    @books
+    list = []
+    @books.each do |book| list << book.info
+    end
+    list
   end
 end
